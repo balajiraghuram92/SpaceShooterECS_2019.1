@@ -11,18 +11,19 @@ namespace ECS_Simple
     {
         protected override void OnUpdate()
         {
-            // Entities.ForEach((ref shipMovementComponent moveSpeed,ref shipMovementBounds moveBounds,ref Translation position,ref Rotation rotation) =>
-            // {
-            // //     var deltaTime = Time.deltaTime;
-            // //     float3 localPos = position.Value;
-            // //     localPos += math.forward(rotation.Value) * moveSpeed.movespeed * Time.deltaTime;
-            // //     if(localPos.z > moveBounds.topBounds)
-            // //         localPos.z = moveBounds.bottomBounds;
+            Entities.ForEach((ref shipMovementComponent moveSpeed,ref shipMovementBounds moveBounds,ref Translation position,ref Rotation rotation) =>
+            {
+                Debug.Log("Speed : "+ moveSpeed.movespeed + "  Bounds : " + moveBounds.topBounds + "  |  " + moveBounds.bottomBounds);
+                var deltaTime = Time.deltaTime;
+                float3 localPos = position.Value;
+                localPos += math.forward(rotation.Value) * moveSpeed.movespeed * Time.deltaTime;
+                if(localPos.z > moveBounds.topBounds)
+                    localPos.z = moveBounds.bottomBounds;
 
-            // //    // position.Value = localPos;
-            //     Debug.Log("position : " + position.Value);
+               position.Value = localPos;
                 
-            // });
+                
+            }); 
         }
     }
 }

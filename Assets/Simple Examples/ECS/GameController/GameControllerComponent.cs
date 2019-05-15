@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace ECS_IJobChunk
+namespace ECS_Simple
 {
      public struct GameControllerComponent : IComponentData
      {

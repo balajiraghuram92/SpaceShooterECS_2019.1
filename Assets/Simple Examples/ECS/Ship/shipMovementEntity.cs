@@ -9,10 +9,10 @@ namespace ECS_Simple
     [RequiresEntityConversion]
     public class shipMovementEntity : MonoBehaviour,IConvertGameObjectToEntity
     {
-        public int _moveSpeed;
-        public int _topBounds;
+        public float _moveSpeed;
+        public float _topBounds;
 
-        public int _bottomBounds;
+        public float _bottomBounds;
          public void Convert(Entity entity,EntityManager dstManager,GameObjectConversionSystem conversionSystem)
          {
              var data1 = new shipMovementComponent
